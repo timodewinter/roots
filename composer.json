@@ -1,0 +1,41 @@
+{
+    "name": "timodewinter/clutchsausagery-theme",
+    "type": "wordpress-theme",
+    "description": "A Wordpress theme developed for Clutch Sausagery",
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"http://wpackagist.org"
+        },
+        {
+          "type": "package",
+            "package": {
+                "name": "flesler/jquery.localScroll",
+                "version": "1.3.5",
+                "dist": {
+                    "url": "https://github.com/flesler/jquery.localScroll/archive/1.3.5.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+          "type": "package",
+            "package": {
+                "name": "imakewebthings/jquery-waypoints",
+                "version": "2.0.5",
+                "dist": {
+                    "url": "https://github.com/imakewebthings/jquery-waypoints/archive/v2.0.5.zip",
+                    "type": "zip"
+                }
+            }
+        }
+
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "flesler/jquery.scrollTo":          "*",
+        "flesler/jquery.localScroll":       "*",
+        "imakewebthings/jquery-waypoints":  "*"
+    }
+}
