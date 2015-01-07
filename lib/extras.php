@@ -22,6 +22,37 @@ function roots_wp_title($title) {
 add_filter('wp_title', 'roots_wp_title', 10);
 
 
+function socialbuttons_shortcode($atts){
+  $return  = "";
+  $return .= '<ul class="social-menu clearfix">';
+  $return .= (get_field('facebook_url', 'options') ? '<li><a href="'.get_field('facebook_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-facebook.svg" class="svg" /></a></li>' : '');
+  $return .= (get_field('twitter_url', 'options') ? '<li><a href="'.get_field('twitter_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-twitter.svg" class="svg" /></a></li>' : '');
+  $return .= (get_field('instagram_url', 'options') ? '<li><a href="'.get_field('instagram_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-instagram.svg" class="svg" /></a></li>' : '');
+  $return .= '</ul>';
+  
+  return $return;
+}
+add_shortcode( 'socialbuttons', 'socialbuttons_shortcode' );
+
+
+/******************************************
+*	ACF Options pages
+*
+/*****************************************/
+
+if( function_exists('acf_add_options_sub_page') ){
+  acf_add_options_sub_page(array(
+    'title' => 'Social URLs',
+    'parent' => 'options-general.php',
+    'capability' => 'manage_options'
+  ));
+  acf_add_options_sub_page(array(
+    'title' => 'Page Links',
+    'parent' => 'options-general.php',
+    'capability' => 'manage_options'
+  ));
+}
+
 
 /**
  * Contains methods for customizing the theme customization screen.
@@ -173,6 +204,21 @@ function theme_scripts() {
   wp_register_script('waypoints', get_template_directory_uri() . '/vendor/imakewebthings/jquery-waypoints/waypoints.min.js', array(), null, true);
   wp_enqueue_script('waypoints');
   // END - waypoints
+  
+  // START - waypointsSticky
+  wp_register_script('waypointsSticky', get_template_directory_uri() . '/vendor/imakewebthings/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js', array(), null, true);
+  wp_enqueue_script('waypointsSticky');
+  // END - waypoints
+  
+  // START - jqueryEasing
+  wp_register_script('jqueryEasing', get_template_directory_uri() . '/vendor/gdsmith/jquery.easing/jquery.easing.1.3.min.js', array(), null, true);
+  wp_enqueue_script('jqueryEasing');
+  // END - jqueryEasing
+
+  // START - masonry
+  wp_register_script('masonry', get_template_directory_uri() . '/vendor/desandro/masonry/dist/masonry.pkgd.min.js', array(), null, true);
+  wp_enqueue_script('masonry');
+  // END - masonry
 
   // START - google-maps
   //wp_register_script('google-maps', 'https://maps.googleapis.com/maps/api/js', array(), null, true);
@@ -181,6 +227,14 @@ function theme_scripts() {
 
 }
 add_action('wp_enqueue_scripts', 'theme_scripts', 99);
+
+
+function theme_head(){
+  // Typekit font
+  echo "<script src=\"//use.typekit.net/psh8uom.js\"></script><script>try{Typekit.load();}catch(e){}</script>";
+}
+
+add_action('wp_head', 'theme_head');
 
 
 

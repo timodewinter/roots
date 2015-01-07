@@ -2,9 +2,257 @@
 .wrap { }
 
 // Main content area
+/*
 .main {
   .make-sm-column(@main-sm-columns);
   .sidebar-primary & {
     .make-sm-column(@main-sm-columns - @sidebar-sm-columns);
   }
 }
+*/
+
+
+a,
+path, rect{
+  .transition(all .2s ease);
+}
+
+a{
+  &:hover,
+  &:focus{
+    text-decoration: none;
+  }
+}
+
+a::-moz-focus-inner {
+  border: 0;
+}
+
+.clearfix{
+  .clearfix();
+}
+
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+.btn,
+.uc
+{
+  text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+.btn,
+.ls{
+  letter-spacing: 0.15em;
+}
+
+.h0{
+  font-size: @font-size-h2;
+}
+
+.lh1{
+ line-height: 1em; 
+}
+.ls0{
+  letter-spacing: 0px;
+}
+
+.tiny{
+  font-size: 50%;
+}
+
+.book{
+  font-weight: 400;
+}
+
+.primary{
+  color: @brand-primary;
+}
+.bg-primary{
+ background-color: @brand-primary; 
+ color: #FFF;
+}
+.secondary{
+  color: @brand-secondary;
+}
+
+.btn-sausage{
+  position: relative;
+  min-height: 58px;
+  border-radius: 0px;
+  padding: 20px 2vw;
+  transition-timing-function: cubic-bezier(0.5, 2, 0.5, 2);
+  transition-duration: 0.2s;
+  &:hover{
+    background-color: #FFF;
+    padding: 20px 2.5vw;
+  }
+  &:before,
+  &:after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    width: 52px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:before{
+    left: -50px;
+    background-position: left center;
+    background-image: url(../img/sausage-end-left.png);
+    background-image: url(../img/sausage-end-left.svg);
+  }
+  &:after{
+    right: -50px;
+    background-position: right center;
+    background-image: url(../img/sausage-end-right.png);
+    background-image: url(../img/sausage-end-right.svg);
+  }
+}
+
+.valign-table{
+  position: relative;
+  display: table;
+  height: 100%;
+  width: 100%;
+  .valign-cell{
+    position: relative;
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+  }
+}
+
+
+
+.alpha{
+  padding-left: 0px;
+}
+.omega{
+  padding-right: 0px;
+}
+
+.stuck{
+  position: fixed;
+  top: 0px;
+}
+
+
+
+.navbar{
+  z-index: 999;
+  width: 100%;
+  padding-bottom: 40px;
+  border: none;
+  background: url(../img/bg-nav.png);
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  .logo-simple{
+    margin-top: 20px;
+  }
+  a{
+    display: block;
+    padding: 10px;
+    color: @brand-primary;
+    &:hover{
+      text-decoration: none;
+      color: darken(@brand-primary, 10%)
+    }
+  }
+}
+
+
+
+
+ul.social-menu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li{
+    display: inline-block;
+    margin: 7px;
+    a{
+      display: block;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background-color: @brand-primary;
+      &:hover{
+        background-color: darken(@brand-primary, 10%);
+      }
+    }
+  }
+}
+
+
+.content-info{
+  padding: 8vh 0 6vh;
+  h4{
+    font-size: 18px;
+  }
+  font-size: 21px;
+  font-weight: 300;
+  .copyright{
+    padding-top: 5vh;
+  }
+  ul.social-menu{
+    padding-bottom: 0.5em;
+  }
+}
+
+
+@media (max-width: @screen-sm-min) {
+  .navbar{
+    position: fixed;
+    top: 0px;
+    zoom: 0.5;
+    padding-top: 0px;
+    .logo-simple{
+      margin-top: 25px
+    }
+    a{
+      zoom: 1.5;
+      padding: 2px;
+    }
+  }
+  
+  h1, .h1{
+    font-size: 30px;
+  }
+  .btn-sausage{
+    zoom: 0.8
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+
+  .h0{
+    font-size: 55px;
+  }
+
+}
+
+// Customizing Bootstrap Elements
+// --------------------------------------------------
+
+.lead {
+  font-size: floor((@font-size-base * 1.15));
+  font-weight: 700;
+  @media (min-width: @screen-sm-min) {
+    font-size: @font-size-base;
+  }
+}
+
+.btn {
+  border: 0px solid transparent;
+  font-weight: 700;
+}
+
+.img-responsive{
+  display: inline-block;
+}
+
+
+
