@@ -8,6 +8,10 @@
             "url":"http://wpackagist.org"
         },
         {
+            "url": "https://timodewinter@bitbucket.org/timodewinter/royal-slider.git",
+            "type": "vcs"
+        },
+        {
           "type": "package",
             "package": {
                 "name": "flesler/jquery.localScroll",
@@ -56,6 +60,7 @@
     "require": {
     },
     "require-dev": {
+        "timodewinter/royalslider":         "*",
         "flesler/jquery.scrollTo":          "*",
         "flesler/jquery.localScroll":       "*",
         "imakewebthings/jquery-waypoints":  "*",

@@ -16,10 +16,11 @@
 var MainNav = {
   init: function(){
     if($(window).width() > 768){
-      $('.navbar').waypoint('sticky');
+      $('.navbar-default').waypoint('sticky');
     }
   }
 };
+
 
 
 var DancingSausages = {
@@ -79,29 +80,90 @@ var Roots = {
       
       $('[data-toggle=tooltip]').tooltip();
       
-      MainNav.init();
+      
+      
+      /********* SVG HANDLING **********/
+      if(!Modernizr.svg) {
+        $('img[src*="svg"]').attr('src', function() {
+          return $(this).attr('src').replace('.svg', '.png');
+        });
+      }else{
+        // http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement
+        $('img.svg-include').each(function(){
+            var $img = $(this);
+            var imgID = $img.attr('id');
+            var imgClass = $img.attr('class');
+            var imgURL = $img.attr('src');
+
+            $.get(imgURL, function(data) {
+                // Get the SVG tag, ignore the rest
+                var $svg = $(data).find('svg');
+
+                // Add replaced image's ID to the new SVG
+                if(typeof imgID !== 'undefined') {
+                    $svg = $svg.attr('id', imgID);
+                }
+                // Add replaced image's classes to the new SVG
+                if(typeof imgClass !== 'undefined') {
+                    $svg = $svg.attr('class', imgClass+' replaced-svg');
+                }
+
+                // Remove any invalid XML tags as per http://validator.w3.org
+                $svg = $svg.removeAttr('xmlns:a');
+
+                // Replace image with new SVG
+                $img.replaceWith($svg);
+
+            }, 'xml');
+
+        });
+      }
     }
   },
   // Home page
   home: {
     init: function() {
       // JavaScript to be fired on the home page
+      MainNav.init();
       DancingSausages.init();
-            
-      $('.menu-name .h3').width($('.menu-name').height());
-
+      $(window).resize(function(){
+        $('.menu-name .h3').each(function(){
+          $(this).width($(this).closest('.menu-name').height());
+        });
+      });
       $('#menus').masonry({
         itemSelector: '.menu',
         columnWidth: 0,
         gutter: 30,
       });
+      $(window).resize();
       
     }
   },
   // About us page, note the change from about-us to about_us.
-  about_us: {
+  page_template_template_store_layout: {
     init: function() {
       // JavaScript to be fired on the about us page
+      $(".royalSlider").royalSlider({
+          autoScaleSlider: true,
+          keyboardNavEnabled: true,
+          arrowsNavAutoHide: false,
+          autoScaleSliderWidth: 800,
+          autoScaleSliderHeight: 500,
+          loopRewind: true
+      });
+      
+      $('.styled-input-container').click(function(){
+        $(this).find('input').focus();
+      });
+      
+/*
+      $('.remove_item').click(function(){
+          Cart.removeItem($(this).data('itemId'), function(cart) {
+            console.log("Item removed!");
+          });
+      });
+*/
     }
   }
 };

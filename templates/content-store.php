@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
         <p class="lead uc ls">
-          Clutch was founded on the idea of creating perfect sausage and putting it in your mouth.
+          <?php the_field('store_lead'); ?>
         </p>
         <p>
-          <a href="" class="btn btn-default btn-lg btn-sausage">Visit our store</a>
+          <a href="<?php the_field('store_link'); ?>" class="btn btn-default btn-lg btn-sausage">Visit our store</a>
         </p>
       </div><!-- .col-sm-4 -->
     </div>

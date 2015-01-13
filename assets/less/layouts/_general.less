@@ -13,16 +13,41 @@
 
 
 a,
-path, rect{
+path, rect,
+button{
   .transition(all .2s ease);
 }
 
-a{
+a,
+button{
   &:hover,
   &:focus{
     text-decoration: none;
+    outline: 0;
   }
 }
+button:focus {outline:0;}
+
+a{
+  img{
+    &.arrow-right,
+    &.arrow-left{
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+  }
+  &.btn{
+    svg{
+      &.arrow-right,
+      &.arrow-left{
+        display: inline-block;
+        margin-bottom: -2px;
+      }
+    }
+    
+  }
+}
+
 
 a::-moz-focus-inner {
   border: 0;
@@ -77,38 +102,119 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
   color: @brand-secondary;
 }
 
+.btn-tall{
+  padding: 16px 18px 15px;
+}
+
+
+
 .btn-sausage{
   position: relative;
   min-height: 58px;
   border-radius: 0px;
-  padding: 20px 2vw;
+  border-width: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
   transition-timing-function: cubic-bezier(0.5, 2, 0.5, 2);
   transition-duration: 0.2s;
-  &:hover{
+  max-width: 100%;
+  &:hover,
+  &:focus,{
     background-color: #FFF;
-    padding: 20px 2.5vw;
+    padding-left: 65px;
+    padding-right: 65px;
   }
   &:before,
   &:after{
     content: "";
     position: absolute;
     top: 0px;
-    width: 52px;
+    width: 50px;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
   }
   &:before{
-    left: -50px;
+    left: 0px;
     background-position: left center;
     background-image: url(../img/sausage-end-left.png);
     background-image: url(../img/sausage-end-left.svg);
   }
   &:after{
-    right: -50px;
+    right: 0px;
     background-position: right center;
     background-image: url(../img/sausage-end-right.png);
     background-image: url(../img/sausage-end-right.svg);
+  }
+  
+  &.btn-sm{
+    min-height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:before,
+    &:after{
+      width: 30px;
+    }
+  }
+  &.btn-default{
+    border: 0px solid transparent;
+    &:before,
+    &:after{
+      background-color: @brand-primary;
+    }
+    &:hover{
+      background-color: #fff;
+      color: @brand-primary;
+    }
+  }
+  &.btn-primary{
+    border: 0px solid transparent;
+    &:before,
+    &:after{
+      background-color: #FFF;
+    }
+    &:hover{
+      background-color: @brand-primary;
+    }
+    &:before{
+      background-image: url(../img/sausage-end-left-primary.png);
+      background-image: url(../img/sausage-end-left-primary.svg);
+    }
+    &:after{
+      background-image: url(../img/sausage-end-right-primary.png);
+      background-image: url(../img/sausage-end-right-primary.svg);
+    }
+  }
+}
+
+
+.btn-cart{
+  position: relative;
+  font-size: 16px;
+  padding-right: 60px;
+  height: 59px;
+  
+  > span{
+    text-align: left;
+    display: block;
+  }
+  
+  span.count{
+    margin-top: -7px;
+  }
+  
+  span.total{
+    margin-top: -3px;
+    display: block;
+    font-weight: 400;
+    position: absolute;
+  }
+  img, svg{
+    position: absolute;
+    right: 10px;
+    top: 10px;
   }
 }
 
@@ -141,18 +247,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 
 
 
-.navbar{
-  z-index: 999;
-  width: 100%;
+.navbar-default{
   padding-bottom: 40px;
-  border: none;
   background: url(../img/bg-nav.png);
   background-repeat: repeat-x;
   background-position: center bottom;
   .logo-simple{
     margin-top: 20px;
   }
-  a{
+  .nav > li > a{
+    &:hover,
+    &:focus{
+      background-color: transparent;
+    }
+  }
+  .nav > li.active > a{
+    text-decoration: underline;
+  }
+  .col-xs-5 a{
     display: block;
     padding: 10px;
     color: @brand-primary;
@@ -161,9 +273,26 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
       color: darken(@brand-primary, 10%)
     }
   }
+  .col-xs-2{
+    a{
+      padding: 0px;
+    }
+  }
 }
 
+.navbar{
+  z-index: 999;
+  width: 100%;
+  border: none;
+  margin-bottom: 0px;
+  .navbar-nav > li > a{
+    margin: 0px;
+  }
+}
 
+.navbar-inverse{
+  margin-bottom: 30px;
+}
 
 
 ul.social-menu{
@@ -173,6 +302,12 @@ ul.social-menu{
   li{
     display: inline-block;
     margin: 7px;
+    &:last-child{
+      margin-right: 0px;
+    }
+    &:first-child{
+      margin-left: 0px;
+    }
     a{
       display: block;
       width: 46px;
@@ -203,8 +338,9 @@ ul.social-menu{
 }
 
 
+
 @media (max-width: @screen-sm-min) {
-  .navbar{
+  .navbar-default{
     position: fixed;
     top: 0px;
     zoom: 0.5;
@@ -212,9 +348,30 @@ ul.social-menu{
     .logo-simple{
       margin-top: 25px
     }
-    a{
+    .col-xs-5 a{
       zoom: 1.5;
       padding: 2px;
+    }
+    a{
+      font-size: 16px;
+    }
+  }
+  
+  .navbar-inverse{
+    min-height: 40px;
+    .navbar-nav{
+      margin: 0px -15px;
+    }
+    .h4{
+      font-size: 16px;
+      svg{
+        display: inline-block;
+        margin-bottom: -2px;
+      }
+    }
+    .navbar-brand{
+      padding: 0px 15px 0 0;
+      height: 40px
     }
   }
   
@@ -222,16 +379,34 @@ ul.social-menu{
     font-size: 30px;
   }
   .btn-sausage{
-    zoom: 0.8
+    transform: scale(0.8);
+    font-size: 80%;
+  }
+  .content-info{
+    &, .text-right{
+      text-align: center;
+    }
+    .social-menu{
+      margin-top: 4vh;
+    }
   }
 }
 
 @media (min-width: @screen-sm-min) {
 
+  .h-1{
+    font-size: 6vw;
+  }
   .h0{
     font-size: 55px;
   }
-
+  .navbar-brand{
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  .btn-cart{
+    min-width: 250px;
+  }
 }
 
 // Customizing Bootstrap Elements
@@ -246,7 +421,8 @@ ul.social-menu{
 }
 
 .btn {
-  border: 0px solid transparent;
+  border-width: 2px;
+  border-radius: 10px;
   font-weight: 700;
 }
 
@@ -254,5 +430,17 @@ ul.social-menu{
   display: inline-block;
 }
 
+.btn-default{
+  &:hover{
+    border-color: @brand-primary;;
+    background-color: @brand-primary;
+    color: #FFF;
+    svg{
+      path{
+        fill: #FFF;
+      }
+    }
+  }
+}
 
 

@@ -9,10 +9,9 @@
         </div>
       </div><!-- .col-sm-4 -->
       <div class="col-sm-4">
-        <h2 class="primary h1">Join the <br>sausage fest <br>January 15</h2>
+        <h2 class="primary h1"><?php the_field('intro_title'); ?></h2>
         <p class="h4 secondary ls0 book">
-          824 SW 1st Ave <br>
-          Portland, OR 97204
+          <?php the_field('intro_text'); ?>
         </p>
       </div><!-- .col-sm-4 -->
       <div class="col-sm-4">
