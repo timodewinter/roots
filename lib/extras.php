@@ -841,6 +841,12 @@ add_action('wp_enqueue_scripts', 'theme_scripts', 99);
 function theme_head(){
   // Typekit font
   echo "<script src=\"//use.typekit.net/psh8uom.js\"></script><script>try{Typekit.load();}catch(e){}</script>";
+  
+  // HTML5 Shiv
+  echo "<!--[if lt IE 9]>\n";
+  echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js\"></script>\n";
+  echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js\"></script>\n";
+  echo "<![endif]-->";
 }
 
 add_action('wp_head', 'theme_head');
