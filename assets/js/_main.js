@@ -138,6 +138,21 @@ var Roots = {
       });
       $(window).resize();
       
+      
+      $(window).scroll(function(){
+        var offset          = $('.location-clouds').offset();
+        var scrollTop       = $(window).scrollTop()+$(window).height()-offset.top;
+        var totalScrollArea = $('.location-clouds').height()+$(window).height();
+        var scrollProgress  = scrollTop/totalScrollArea;
+        
+        if(scrollProgress >= 0 && scrollProgress <= 1){
+          var totalMovement = 100;
+          var startingPoint = 50;
+          
+          $('.location-clouds').css('transform', 'translate3d('+((scrollProgress*totalMovement)-startingPoint)+'px,0px, 0)');
+        }
+      });
+      
     }
   },
   // About us page, note the change from about-us to about_us.

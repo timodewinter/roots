@@ -13,6 +13,7 @@
         <h3 class="h0 text-center"><?php the_sub_field( 'title'); ?></h2>
         <figure class="text-center">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/timberland-town-center.svg" class="svg img-responsive">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/timberland-town-center-clouds.svg" class="svg img-responsive location-clouds">
         </figure>
         <div class="row uc hours-address">
             <div class="col-sm-5 col-sm-offset-2 col-md-4">
