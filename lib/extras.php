@@ -23,11 +23,16 @@ add_filter('wp_title', 'roots_wp_title', 10);
 
 
 function socialbuttons_shortcode($atts){
+  
+  $a = shortcode_atts( array(
+    'class' => '',
+  ), $atts );
+  
   $return  = "";
-  $return .= '<ul class="social-menu clearfix">';
-  $return .= (get_field('facebook_url', 'options') ? '<li><a href="'.get_field('facebook_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-facebook.svg" class="svg svg-include" /></a></li>' : '');
-  $return .= (get_field('twitter_url', 'options') ? '<li><a href="'.get_field('twitter_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-twitter.svg" class="svg svg-include" /></a></li>' : '');
-  $return .= (get_field('instagram_url', 'options') ? '<li><a href="'.get_field('instagram_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-instagram.svg" class="svg svg-include" /></a></li>' : '');
+  $return .= '<ul class="social-menu clearfix social-menu'.$a['class'].'">';
+  $return .= (get_field('facebook_url', 'options') ? '<li><a href="'.get_field('facebook_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-facebook'.$a['class'].'.svg" class="svg svg-include" /></a></li>' : '');
+  $return .= (get_field('twitter_url', 'options') ? '<li><a href="'.get_field('twitter_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-twitter'.$a['class'].'.svg" class="svg svg-include" /></a></li>' : '');
+  $return .= (get_field('instagram_url', 'options') ? '<li><a href="'.get_field('instagram_url', 'options').'" target="_blank"><img src="'.get_bloginfo('template_url').'/assets/img/social-instagram'.$a['class'].'.svg" class="svg svg-include" /></a></li>' : '');
   $return .= '</ul>';
   
   return $return;

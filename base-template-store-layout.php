@@ -28,7 +28,7 @@
     </div><!-- /.content -->
   </div><!-- /.wrap -->
 
-  <?php get_template_part('templates/footer'); ?>
+  <?php get_template_part('templates/footer', 'store'); ?>
 
   <?php wp_footer(); ?>
   <script src="{{ 'api' | theme_js_url }}" type="text/javascript"></script>
