@@ -13,7 +13,7 @@
       <div class="col-sm-3 text-right">
         <?php echo apply_filters('the_content','[socialbuttons]'); ?>
         <?php
-            echo (get_field('twitter_url', 'options') ? '<a href="'.get_field('twitter_url', 'options').'" target="_blank">'.get_field('twitter_handle', 'options').'</a>' : '');
+            echo (get_field('instagram_url', 'options') ? '<a href="'.get_field('instagram_url', 'options').'" target="_blank">'.get_field('instagram_handle', 'options').'</a>' : '');
         ?>
       </div>
       <div class="col-sm-10 col-sm-offset-1">

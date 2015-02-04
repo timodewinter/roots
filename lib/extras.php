@@ -596,8 +596,8 @@ register_field_group(array (
 		),
 		array (
 			'key' => 'field_54ac10b7a95d6',
-			'label' => 'Twitter handle',
-			'name' => 'twitter_handle',
+			'label' => 'Instagram handle',
+			'name' => 'instagram_handle',
 			'prefix' => '',
 			'type' => 'text',
 			'instructions' => '',
