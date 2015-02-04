@@ -851,6 +851,7 @@ function theme_head(){
   echo "<!--[if lt IE 9]>\n";
   echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js\"></script>\n";
   echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js\"></script>\n";
+  echo "<script src=\"".get_template_directory_uri()."/assets/js/vendor/excanvas.js\"></script>";
   echo "<![endif]-->";
 }
 
