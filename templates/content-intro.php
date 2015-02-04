@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="dancing-sausages">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-pork.svg" class="svg">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-lamb.svg" class="svg">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-turkey.svg" class="svg">
+          <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-pork.svg" class="svg"></figure>
+          <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-lamb.svg" class="svg"></figure>
+          <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-turkey.svg" class="svg"></figure>
         </div>
       </div><!-- .col-sm-4 -->
       <div class="col-sm-4">
@@ -16,9 +16,9 @@
       </div><!-- .col-sm-4 -->
       <div class="col-sm-4">
         <div class="dancing-sausages">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-beef.svg" class="svg">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-chicken.svg" class="svg">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-pork.svg" class="svg">
+          <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-beef.svg" class="svg"></figure>
+          <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-chicken.svg" class="svg"></figure>
+          <figure><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sausage-pork.svg" class="svg"></figure>
         </div>
       </div><!-- .col-sm-4 -->
     </div>

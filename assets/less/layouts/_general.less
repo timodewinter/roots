@@ -108,10 +108,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 
 
 
-.btn-sausage{
+.btn.btn-sausage{
   position: relative;
   min-height: 58px;
-  border-radius: 0px;
+  border-radius: 50px;
   border-width: 0px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -137,13 +137,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
     background-size: cover;
   }
   &:before{
-    left: 0px;
+    left: -15px;
     background-position: left center;
     background-image: url(../img/sausage-end-left.png);
     background-image: url(../img/sausage-end-left.svg);
   }
   &:after{
-    right: 0px;
+    right: -15px;
     background-position: right center;
     background-image: url(../img/sausage-end-right.png);
     background-image: url(../img/sausage-end-right.svg);
@@ -264,15 +264,30 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
     }
   }
   .nav > li.active > a{
-    text-decoration: underline;
+    &:after{
+      background-color: @brand-primary;
+    }
   }
   .col-xs-5 a{
-    display: block;
-    padding: 10px;
+    display: inline-block;
+    padding: 10px 0;
     color: @brand-primary;
+    &:after{
+      content: "";
+      display: block;
+      bottom: -3px;
+      height: 3px;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 97%;
+      background-color: #FFF;
+      .transition(all .2s ease);
+    }
     &:hover{
       text-decoration: none;
-      color: darken(@brand-primary, 10%)
+      &:after{
+        background-color: @brand-primary;
+      }
     }
   }
   .col-xs-2{

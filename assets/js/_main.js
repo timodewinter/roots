@@ -25,7 +25,7 @@ var MainNav = {
 
 var DancingSausages = {
   init: function(){
-    $('.dancing-sausages img, .dancing-sausages svg').mouseenter(DancingSausages.dance);
+    $('.dancing-sausages figure').mouseenter(DancingSausages.dance);
     setInterval(function(){ DancingSausages.randomDanceOff(); }, 250);
   },
   
@@ -41,11 +41,11 @@ var DancingSausages = {
   randomDanceOff: function(){
     var e = {};
     var count;
-    var max = $('.dancing-sausages img, .dancing-sausages svg').length;
+    var max = $('.dancing-sausages figure').length;
     
     do {
-      var randomNumber = Math.floor((Math.random() * $('.dancing-sausages img, .dancing-sausages svg').length));
-      e.target = $('.dancing-sausages img, .dancing-sausages svg')[randomNumber];
+      var randomNumber = Math.floor((Math.random() * $('.dancing-sausages figure').length));
+      e.target = $('.dancing-sausages figure')[randomNumber];
       count++;
     } while($(e.target).hasClass('animated') === true && count < max);
     
